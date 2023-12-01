@@ -1,6 +1,6 @@
 {
   "name": "ignition-restful-proxy",
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "yarn@1.22.21",
   "devDependencies": {
     "get-graphql-schema": "^2.1.2",
     "netlify-cli": "^17.8.1",
@@ -18,5 +18,20 @@
     "graphql-request": "^6.1.0",
     "serverless-http": "^3.2.0",
     "sofa-api": "0.18.0"
-  }
+  },
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": "bin/generate-graphql-schema.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephj/ignitionapp-restful-proxy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephj/ignitionapp-restful-proxy/issues"
+  },
+  "homepage": "https://github.com/josephj/ignitionapp-restful-proxy#readme"
 }
