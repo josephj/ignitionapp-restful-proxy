@@ -31,7 +31,7 @@ useSofa({
   schema,
   onRoute(info) {
     app[info.method](info.path, async (req, res) => {
-      const accessToken = req.headers['authorization'] || 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ1c3J0a25fbXZ1czdpYXhiNXNxYXJxYXh5ZmEiLCJpYXQiOjE3MDEzOTIyODgsImV4cCI6MTcwMTM5NDA4OCwic3ViIjoidXNlcl9tcDc3NnBvbWdnZXFhZ3FheGx3cSIsInNjb3BlcyI6WyJtZmEiLCJhcHAiXSwic2Vzc2lvbl9pZCI6IjJkMTQ5MWZmNmYxMzNhMjNmNGIxZjlhY2E1OWIzMmMyYTE3ZDI3OTUyNzVmODQ1NGZiMGU2NzU5YjllYTEzM2MifQ.4grrbJilSkpBq2vxiMcDV90XnJyAYZMMhmbmjXDW5Bg';
+      const accessToken = req.headers['authorization'] || 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ1c3J0a25fbXZ1dXRva2RsaGRxYWxhYWtqcWEiLCJpYXQiOjE3MDEzOTg5NjksImV4cCI6MTcwMTQwMDc2OSwic3ViIjoidXNlcl9tcDc3NnBvbWdnZXFhZ3FheGx3cSIsInNjb3BlcyI6WyJtZmEiLCJhcHAiXSwic2Vzc2lvbl9pZCI6IjIwZGM1ZWFjM2Q2N2RjNDdlYTZlZDk3MTE2Y2JhZTcyNzAyMTM1MDIwYmEyZTI4NmU4ZmJjMTdjMjIwMjZmYzgifQ.qCrq8yJoX2Fm1JekwO_Xe8O4E9__wBuM-LmBvPz7Lw0';
       if (accessToken) {
         graphqlClient.setHeader('authorization', `Bearer ${accessToken}`);
       }
