@@ -1,0 +1,6 @@
+[functions]
+  included_files = ["schema.graphql"]
+
+[build]
+  functions = "./netlify/functions"
+

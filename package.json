@@ -1,0 +1,22 @@
+{
+  "name": "ignition-restful-proxy",
+  "packageManager": "yarn@3.4.1",
+  "devDependencies": {
+    "get-graphql-schema": "^2.1.2",
+    "netlify-cli": "^17.8.1",
+    "readline": "^1.3.0"
+  },
+  "scripts": {
+    "start": "netlify dev",
+    "build": "echo \"No build required\"",
+    "graphql:schema": "node bin/generate-graphql-schema.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "graphql": "^16.8.1",
+    "graphql-request": "^6.1.0",
+    "serverless-http": "^3.2.0",
+    "sofa-api": "0.18.0"
+  }
+}
