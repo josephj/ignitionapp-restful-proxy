@@ -6,8 +6,6 @@
 !.yarn/versions
 !.yarn/cache
 
-node_modules
-
 .netlify
 
 .idea
