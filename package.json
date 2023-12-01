@@ -21,7 +21,7 @@
   },
   "description": "",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "netlify/functions/express/index.js",
   "bin": "bin/generate-graphql-schema.js",
   "repository": {
     "type": "git",
