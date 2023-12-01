@@ -1,5 +1,5 @@
 // index.js (renamed to express.js as per Netlify Functions structure)
-const index = require('express');
+const express = require('express');
 const serverless = require('serverless-http');
 const { GraphQLClient } = require('graphql-request');
 const { useSofa } = require('sofa-api');
@@ -17,8 +17,9 @@ const loadSchemaFromFile = () => {
   return buildSchema(sdl);
 }
 
-const app = index();
-app.use(index.json());
+
+const app = express();
+app.use(express.json());
 
 const schema = loadSchemaFromFile();
 
@@ -30,8 +31,7 @@ useSofa({
   schema,
   onRoute(info) {
     app[info.method](info.path, async (req, res) => {
-      const accessToken = req.headers['authorization'] || 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ1c3J0a25fbXZ1cnlja2RsaGRxYW9pYWp3cnEiLCJpYXQiOjE3MDEzODcyNzMsImV4cCI6MTcwMTM4OTA3Mywic3ViIjoidXNlcl9tcDc3NnBvbWdnZXFhZ3FheGx3cSIsInNjb3BlcyI6WyJtZmEiLCJhcHAiXSwic2Vzc2lvbl9pZCI6ImFjYzljZjYzOGQ1ZDBjZjQ0YmU3ZjI1ODE4MWE4ODM5NGM3NjVkNzBmNmY5ZTJkYTE1Zjk0NDI1NGI2YWI4ZWQifQ.GtIEcG6C9OXE1Z2gTCZqrjt2ZwxEYdpK4i2kL0VzTU0';
-      console.log("=>(index.js:30) accessToken", accessToken);
+      const accessToken = req.headers['authorization'] || 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ1c3J0a25fbXZ1czdpYXhiNXNxYXJxYXh5ZmEiLCJpYXQiOjE3MDEzOTIyODgsImV4cCI6MTcwMTM5NDA4OCwic3ViIjoidXNlcl9tcDc3NnBvbWdnZXFhZ3FheGx3cSIsInNjb3BlcyI6WyJtZmEiLCJhcHAiXSwic2Vzc2lvbl9pZCI6IjJkMTQ5MWZmNmYxMzNhMjNmNGIxZjlhY2E1OWIzMmMyYTE3ZDI3OTUyNzVmODQ1NGZiMGU2NzU5YjllYTEzM2MifQ.4grrbJilSkpBq2vxiMcDV90XnJyAYZMMhmbmjXDW5Bg';
       if (accessToken) {
         graphqlClient.setHeader('authorization', `Bearer ${accessToken}`);
       }
@@ -46,11 +46,4 @@ useSofa({
   },
 });
 
-// Keep the code below if you want to continue using Express in a traditional way
-// const PORT = 4000;
-// app.listen(PORT, () => {
-//   console.log(`Server is running at http://localhost:${PORT}`);
-// });
-
-// Export the handler for serverless
-module.exports.handler = serverless(app);
+module.exports.handler = serverless(app)
