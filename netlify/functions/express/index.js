@@ -29,6 +29,13 @@ const graphqlClient = new GraphQLClient(endpoint);
 useSofa({
   basePath: '/api',
   schema,
+  errorHandler(errors) {
+    console.error(errors);
+    return new Response(formatError(errs[0]), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  },
   onRoute(info) {
     app[info.method](info.path, async (req, res) => {
       const accessToken = req.headers['authorization'] || 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ1c3J0a25fbXZ1dXRva2RsaGRxYWxhYWtqcWEiLCJpYXQiOjE3MDEzOTg5NjksImV4cCI6MTcwMTQwMDc2OSwic3ViIjoidXNlcl9tcDc3NnBvbWdnZXFhZ3FheGx3cSIsInNjb3BlcyI6WyJtZmEiLCJhcHAiXSwic2Vzc2lvbl9pZCI6IjIwZGM1ZWFjM2Q2N2RjNDdlYTZlZDk3MTE2Y2JhZTcyNzAyMTM1MDIwYmEyZTI4NmU4ZmJjMTdjMjIwMjZmYzgifQ.qCrq8yJoX2Fm1JekwO_Xe8O4E9__wBuM-LmBvPz7Lw0';
