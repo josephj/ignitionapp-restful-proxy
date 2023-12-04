@@ -1,5 +1,7 @@
 [functions]
   included_files = ["schema.graphql"]
+  external_node_modules = ["sofa-api"]
+
 
 [build]
   functions = "./netlify/functions"
